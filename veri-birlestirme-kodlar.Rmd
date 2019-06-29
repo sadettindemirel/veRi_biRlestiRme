@@ -1,0 +1,131 @@
+---
+title: "R ekosisteminde veri birleştirme (joining)"
+author: "Sadettin Demirel"
+date: "28/06/2019"
+output: html_document
+---
+
+```{r
+```
+
+
+Paketler
+```{r warning=FALSE}
+library(readxl)
+library(tidyverse)
+
+#grafiklerde kullanacağımız fontu belirledik
+windowsFonts("Proxima Nova" = windowsFont("Proxima Nova"))
+
+#verilerde yer alan türkçe karakterler için
+Sys.setlocale("LC_CTYPE", "turkish")
+```
+
+Veriyi içeri aktarma
+```{r}
+ibb_akp <- readRDS("C:/Users/Sadettin/Rstats/veri_birlestirme_dplyr/ibb_akp.rds")
+
+ibb_chp <- readRDS("C:/Users/Sadettin/Rstats/veri_birlestirme_dplyr/ibb_chp.rds")
+
+yolsuzluk_endeks <- readRDS("C:/Users/Sadettin/Rstats/veri_birlestirme_dplyr/yolsuzluk_endeks.rds")
+
+dunya_ozgur <- readRDS("C:/Users/Sadettin/Rstats/veri_birlestirme_dplyr/dunya_ozgur.rds")
+
+```
+
+Verileri önizleyelim
+
+
+```{r}
+glimpse(yolsuzluk_endeks)
+```
+
+```{r}
+glimpse(dunya_ozgur)
+```
+
+
+
+
+1.left_join ve right_join
+
+```{r}
+ibb_secim1 <- ibb_akp %>% left_join(ibb_chp, by ="ilçe")
+
+ibb_secim1
+```
+
+
+```{r}
+ibb_secim2<- ibb_akp %>% right_join(ibb_chp, by ="ilçe")
+ibb_secim2
+```
+
+Görselleştirelim
+
+Özel temayı belirleyelim
+
+```{r}
+theme_custom1 <- function() {
+  theme_minimal() +
+    theme(
+      text = element_text(family = "Proxima Nova", color = "gray25"),
+      plot.title = element_text(face = "bold",size = 14),
+      plot.subtitle = element_text(size = 13),
+      axis.text.x= element_text(size=11),
+      axis.text.y = element_text(size=11),
+      plot.caption = element_text(size = 11, color = "gray30"),
+      plot.background = element_rect(fill = "#f6f5f5"),
+      legend.position = "none",
+      strip.background = element_rect(colour = "#d9d9d9", fill = "#d9d9d9"),
+      strip.text.x = element_text(size = 11, colour = "gray25", face = "bold"))
+  
+}
+```
+
+
+
+```{r}
+ibb_secim1 %>% mutate(fark = chp-akp) %>% 
+  ggplot(aes(fct_reorder(ilçe, fark), fark,fill = ifelse(fark>0,"chp","akp")))+
+  geom_col()+
+  geom_text(aes(x = ilçe, y = fark,label = round(fark, 1), hjust = ifelse(fark > 0,-0.3,1.2)),size = 3.8,color= "gray25")+
+  coord_flip()+
+  scale_fill_manual(values =c("akp"="#ff922b","chp"="#fa5252"))+
+  theme_custom1()+
+  labs(x="",y="oy farkı",
+       title = "İmamoğlu ve Yıldırım Arasındaki Oy Farkı", 
+       subtitle = "Sıfırdan büyük değerlerde CHP, küçük değerlerde ise AKP öndedir",
+       caption ="@demirelsadettin")
+```
+
+2.inner_join, anti_join ve full_join
+
+```{r}
+yeni_veri1 <- yolsuzluk_endeks %>% inner_join(dunya_ozgur, by = "ülke")
+yeni_veri1
+```
+
+```{r}
+yeni_veri1 %>% ggplot(aes(skor, puan,color =bölge, size = puan))+ geom_jitter(size =4)+facet_wrap(~bölge)
+```
+
+
+```{r}
+yeni_veri2 <- yolsuzluk_endeks %>% anti_join(dunya_ozgur, by = "ülke")
+yeni_veri2
+```
+
+```{r}
+yeni_veri3 <- dunya_ozgur %>% anti_join(yolsuzluk_endeks, by = "ülke")
+yeni_veri3
+```
+
+
+
+```{r}
+yeni_veri4 <- yolsuzluk_endeks %>% full_join(dunya_ozgur, by = "ülke")
+yeni_veri4
+
+```
+
