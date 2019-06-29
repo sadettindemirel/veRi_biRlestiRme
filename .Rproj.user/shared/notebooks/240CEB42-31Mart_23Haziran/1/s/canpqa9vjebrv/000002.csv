@@ -1,0 +1,11 @@
+"0","```r
+secim %>% ggplot() + 
+  geom_line(aes(chp, fct_reorder(ilÃ§e, chp)),arrow = arrow(length = unit(1.5, \"mm\"), type = \"closed\", ends = \"last\"))+
+  geom_text(aes(x = chp, y = ilÃ§e,label = round(chp, 1), hjust = ifelse(secim_tarih == \"2019-06-23\",-0.3,1.2)),size = 4,color= \"gray25\")+
+  labs(x = \"alÄ±nan oy (%)\",y =\"\", 
+       title = \"Ekrem Ä°mamoglu  23 Haziran'da tÃ¼m ilÃ§elerde oyunu arttÄ±rdÄ±\", 
+       subtitle = \"31 Mart ---> 23 Haziran\", 
+       caption = \"@demirelsadettin\")+
+  theme_custom1()+
+  coord_cartesian(xlim= c(27, 85))
+```"

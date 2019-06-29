@@ -1,0 +1,14 @@
+"0","glimpse(yolsuzluk_endeks)
+"
+"1","Observations: 180
+"
+"1","Variables: 3
+"
+"1","$ ülke  [3m[38;5;246m<chr>[39m[23m ""Denmark"", ""New Zealand"", ""Finland"", ""Singapore"", ""Sweden"", ""Switzer...
+"
+"1",""
+"1","$ bölge [3m[38;5;246m<chr>[39m[23m ""WE/EU"", ""AP"", ""WE/EU"", ""AP"", ""WE/EU"", ""WE/EU"", ""WE/EU"", ""WE/EU"", ""A...
+"
+"1",""
+"1","$ skor  [3m[38;5;246m<dbl>[39m[23m 88, 87, 85, 85, 85, 85, 84, 82, 81, 81, 80, 80, 77, 76, 76, 76, 75, ...
+"

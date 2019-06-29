@@ -1,0 +1,8 @@
+"0","ibb_akp <- readRDS(""C:/Users/Sadettin/Rstats/veri_birlestirme_dplyr/ibb_akp.rds"")"
+"0",""
+"0","ibb_chp <- readRDS(""C:/Users/Sadettin/Rstats/veri_birlestirme_dplyr/ibb_chp.rds"")"
+"0",""
+"0","yolsuzluk_endeks <- readRDS(""C:/Users/Sadettin/Rstats/veri_birlestirme_dplyr/yolsuzluk_endeks.rds"")"
+"0",""
+"0","basin_ozgur <- readRDS(""C:/Users/Sadettin/Rstats/veri_birlestirme_dplyr/basin_ozgur.rds"")"
+"0",""

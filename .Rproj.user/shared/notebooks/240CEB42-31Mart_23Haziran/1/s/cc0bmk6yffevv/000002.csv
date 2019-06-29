@@ -1,0 +1,6 @@
+"0","```r
+secim_tidy2%>% ggplot(aes(fct_reorder(ilÃ§e, fark, max),fark, fill = parti))+
+  geom_col()+coord_flip()+theme_custom1()+labs(x = \"\", y =\"\", title = \"31 Mart'a gÃ¶re tÃ¼m ilÃ§elerde Ä°mamoÄŸlu oyunu arttÄ±rÄ±ken, YÄ±ldÄ±rÄ±m ise oy kaybÄ± yaÅŸadÄ±\", subtitle = \"Oy farkÄ± yÃ¼zdelik (%) olarak gÃ¶sterilmektedir\", caption = \"@demirelsadettim\")+
+  scale_fill_manual(values = c(\"akp\" = \"#fab005\",\"chp\"=\"#fa5252\"))+
+  geom_text(aes(x = ilÃ§e, y = fark ,label = round(fark, 1),hjust = ifelse(fark >0 ,-0.2,1.2)),size = 4,color= \"gray25\")
+```"

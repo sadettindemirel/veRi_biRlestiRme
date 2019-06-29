@@ -1,0 +1,17 @@
+"0","```r
+theme_custom1 <- function() {
+  theme_minimal() +
+    theme(
+      text = element_text(family = \"Proxima Nova\", color = \"gray25\"),
+      plot.title = element_text(face = \"bold\",size = 14),
+      plot.subtitle = element_text(size = 13),
+      axis.text.x= element_text(size=11),
+      axis.text.y = element_text(size=11),
+      plot.caption = element_text(size = 11, color = \"gray30\"),
+      plot.background = element_rect(fill = \"#f6f5f5\"),
+      legend.position = \"none\",
+      strip.background = element_rect(colour = \"#d9d9d9\", fill = \"#d9d9d9\"),
+      strip.text.x = element_text(size = 11, colour = \"gray25\", face = \"bold\"))
+  
+}
+```"

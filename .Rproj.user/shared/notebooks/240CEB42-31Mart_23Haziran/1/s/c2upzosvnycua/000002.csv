@@ -1,0 +1,6 @@
+"0","```r
+secim_tidy2<- secim_tidy %>% spread(secim_tarih,oy_yÃ¼zde) %>% mutate(fark = `2019-06-23` - `2019-03-31`)
+View(secim_tidy2)
+saveRDS(secim_tidy2,\"secim_tidy.rds\")
+secim_tidy2
+```"

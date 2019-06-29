@@ -1,0 +1,3 @@
+"0","```r
+secim %>% ggplot() + geom_line(aes(chp, ilÃ§e),arrow = arrow(length = unit(1.5, \"mm\"), type = \"closed\", ends = \"last\"))
+```"

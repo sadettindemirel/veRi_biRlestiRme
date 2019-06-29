@@ -1,0 +1,6 @@
+"0","```r
+Sys.setlocale(\"LC_CTYPE\", \"turkish\")
+
+```"
+"1","[1] \"Turkish_Turkey.1254\"
+"

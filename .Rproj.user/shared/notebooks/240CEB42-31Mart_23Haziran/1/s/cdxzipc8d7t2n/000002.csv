@@ -1,0 +1,5 @@
+"0","```r
+secim_tidy <- secim %>% select(1,2,3,5) %>% gather(parti, oy_yÃ¼zde, - ilÃ§e, -secim_tarih)
+View(secim_tidy)
+
+```"

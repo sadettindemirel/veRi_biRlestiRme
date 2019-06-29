@@ -1,0 +1,3 @@
+"0","ibb_secim1 <- ibb_akp %>% left_join(ibb_chp, by =""ilçe"")"
+"0",""
+"0","ibb_secim1"
