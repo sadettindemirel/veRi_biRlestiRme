@@ -1,5 +1,0 @@
----
-title: "R ekosisteminde veri setleri nasıl birleştirilir?"
-output: html_document
----
-
